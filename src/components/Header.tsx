@@ -16,15 +16,17 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 glass-effect">
+    <header className="fixed top-0 left-0 right-0 z-50 chrome-glass-effect">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link to="/" className="flex-shrink-0">
             <div className="w-[140px]">
-              <h1 className="font-heading text-2xl font-bold text-white">
-                Executive <span className="text-executive-gold">Exotics</span>
-              </h1>
+              <img 
+                src="/Ex_Logo.png" 
+                alt="Executive Exotics Logo" 
+                className="h-12 w-auto chrome-glow-effect"
+              />
             </div>
           </Link>
 
@@ -34,8 +36,8 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`text-white hover:text-executive-gold transition-colors duration-300 font-medium ${
-                  location.pathname === item.href ? 'text-executive-gold' : ''
+                className={`text-chrome-light hover:text-chrome-highlight transition-colors duration-300 font-medium chrome-text-shadow ${
+                  location.pathname === item.href ? 'text-chrome-highlight chrome-active-glow' : ''
                 }`}
               >
                 {item.name}
@@ -47,7 +49,7 @@ const Header = () => {
           <div className="hidden md:block">
             <Link
               to="/fleet"
-              className="bg-executive-gold text-luxury-black px-6 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition-all duration-300 hover-lift"
+              className="chrome-button-gradient text-luxury-black px-6 py-3 rounded-lg font-semibold hover:chrome-button-hover transition-all duration-300 chrome-button-shadow"
             >
               Browse Fleet
             </Link>
@@ -56,7 +58,7 @@ const Header = () => {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden text-white hover:text-executive-gold transition-colors"
+            className="md:hidden text-chrome-light hover:text-chrome-highlight transition-colors chrome-icon-glow"
           >
             <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               {isMenuOpen ? (
@@ -70,15 +72,15 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden bg-luxury-black bg-opacity-95 rounded-lg mt-2 p-4">
+          <div className="md:hidden chrome-mobile-menu rounded-lg mt-2 p-4">
             <nav className="flex flex-col space-y-4">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`text-white hover:text-executive-gold transition-colors duration-300 font-medium ${
-                    location.pathname === item.href ? 'text-executive-gold' : ''
+                  className={`text-chrome-light hover:text-chrome-highlight transition-colors duration-300 font-medium ${
+                    location.pathname === item.href ? 'text-chrome-highlight' : ''
                   }`}
                 >
                   {item.name}
@@ -87,7 +89,7 @@ const Header = () => {
               <Link
                 to="/fleet"
                 onClick={() => setIsMenuOpen(false)}
-                className="bg-executive-gold text-luxury-black px-6 py-3 rounded-lg font-semibold text-center hover:bg-yellow-400 transition-all duration-300"
+                className="chrome-button-gradient text-luxury-black px-6 py-3 rounded-lg font-semibold text-center hover:chrome-button-hover transition-all duration-300"
               >
                 Browse Fleet
               </Link>
