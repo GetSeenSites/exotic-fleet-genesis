@@ -12,7 +12,7 @@ const About = () => {
       <section className="pt-32 pb-16 bg-luxury-black text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="font-heading text-5xl md:text-6xl font-bold mb-6">
-            About <span className="text-executive-gold">Executive Exotics</span>
+            About <span className="text-chrome-light chrome-text-shadow">Executive Exotics</span>
           </h1>
           <p className="text-xl text-gray-300">
             Redefining luxury car rentals with passion, precision, and unmatched service
@@ -63,8 +63,8 @@ const About = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-8 bg-white rounded-xl shadow-lg">
-              <div className="w-16 h-16 bg-executive-gold rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="text-center p-8 bg-white rounded-xl shadow-lg chrome-card-effect">
+              <div className="w-16 h-16 chrome-premium-gradient rounded-full flex items-center justify-center mx-auto mb-6 chrome-button-shadow">
                 <span className="text-2xl">🏆</span>
               </div>
               <h3 className="font-heading text-xl font-bold text-luxury-black mb-4">Excellence</h3>
@@ -73,8 +73,8 @@ const About = () => {
               </p>
             </div>
 
-            <div className="text-center p-8 bg-white rounded-xl shadow-lg">
-              <div className="w-16 h-16 bg-executive-gold rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="text-center p-8 bg-white rounded-xl shadow-lg chrome-card-effect">
+              <div className="w-16 h-16 chrome-premium-gradient rounded-full flex items-center justify-center mx-auto mb-6 chrome-button-shadow">
                 <span className="text-2xl">🔒</span>
               </div>
               <h3 className="font-heading text-xl font-bold text-luxury-black mb-4">Trust</h3>
@@ -83,8 +83,8 @@ const About = () => {
               </p>
             </div>
 
-            <div className="text-center p-8 bg-white rounded-xl shadow-lg">
-              <div className="w-16 h-16 bg-executive-gold rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="text-center p-8 bg-white rounded-xl shadow-lg chrome-card-effect">
+              <div className="w-16 h-16 chrome-premium-gradient rounded-full flex items-center justify-center mx-auto mb-6 chrome-button-shadow">
                 <span className="text-2xl">⚡</span>
               </div>
               <h3 className="font-heading text-xl font-bold text-luxury-black mb-4">Performance</h3>
@@ -101,19 +101,19 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-executive-gold mb-2">500+</div>
+              <div className="text-4xl font-bold text-chrome-light chrome-active-glow mb-2">500+</div>
               <div className="text-gray-300">Happy Clients</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-executive-gold mb-2">50+</div>
+              <div className="text-4xl font-bold text-chrome-light chrome-active-glow mb-2">50+</div>
               <div className="text-gray-300">Luxury Vehicles</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-executive-gold mb-2">24/7</div>
+              <div className="text-4xl font-bold text-chrome-light chrome-active-glow mb-2">24/7</div>
               <div className="text-gray-300">Concierge Service</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-executive-gold mb-2">5★</div>
+              <div className="text-4xl font-bold text-chrome-light chrome-active-glow mb-2">5★</div>
               <div className="text-gray-300">Average Rating</div>
             </div>
           </div>

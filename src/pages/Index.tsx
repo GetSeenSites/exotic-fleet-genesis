@@ -27,13 +27,13 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <a
               href="/fleet"
-              className="bg-executive-gold text-luxury-black px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-400 transition-all duration-300 hover-lift"
+              className="chrome-premium-gradient text-luxury-black px-8 py-4 rounded-lg text-lg font-semibold hover:chrome-button-hover transition-all duration-300 hover-lift chrome-button-shadow"
             >
               Browse Our Fleet
             </a>
             <a
               href="/contact"
-              className="border-2 border-executive-gold text-executive-gold px-8 py-4 rounded-lg text-lg font-semibold hover:bg-executive-gold hover:text-luxury-black transition-all duration-300"
+              className="border-2 border-chrome-light text-chrome-light px-8 py-4 rounded-lg text-lg font-semibold hover:bg-chrome-light hover:text-luxury-black transition-all duration-300"
             >
               Contact Us
             </a>

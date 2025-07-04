@@ -88,7 +88,7 @@ const Fleet = () => {
       <section className="pt-32 pb-16 bg-luxury-black text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="font-heading text-5xl md:text-6xl font-bold mb-6">
-            Our <span className="text-executive-gold">Exotic Fleet</span>
+            Our <span className="text-chrome-light chrome-text-shadow">Exotic Fleet</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Choose from Florida's most exclusive collection of luxury and exotic vehicles
@@ -106,7 +106,7 @@ const Fleet = () => {
                 onClick={() => setSelectedCategory(category)}
                 className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
                   selectedCategory === category
-                    ? 'bg-executive-gold text-luxury-black'
+                    ? 'chrome-premium-gradient text-luxury-black chrome-button-shadow'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
@@ -125,7 +125,7 @@ const Fleet = () => {
               <Link
                 key={vehicle.id}
                 to={`/vehicle/${vehicle.id}`}
-                className="group bg-white rounded-xl shadow-lg overflow-hidden hover-lift luxury-shadow"
+                className="group bg-white rounded-xl shadow-lg overflow-hidden hover-lift luxury-shadow chrome-card-effect"
               >
                 <div className="relative overflow-hidden">
                   <img
@@ -134,7 +134,7 @@ const Fleet = () => {
                     className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute top-4 left-4">
-                    <span className="bg-executive-gold text-luxury-black px-3 py-1 rounded-full text-sm font-semibold">
+                    <span className="chrome-premium-gradient text-luxury-black px-3 py-1 rounded-full text-sm font-semibold chrome-button-shadow">
                       {vehicle.category}
                     </span>
                   </div>
@@ -154,10 +154,10 @@ const Fleet = () => {
                   </div>
                   
                   <div className="flex justify-between items-center">
-                    <span className="text-2xl font-bold text-executive-gold">
+                    <span className="text-2xl font-bold text-chrome-mid chrome-text-shadow">
                       {vehicle.price}<span className="text-sm text-gray-500">/day</span>
                     </span>
-                    <span className="text-gray-600 group-hover:text-executive-gold transition-colors">
+                    <span className="text-gray-600 group-hover:text-chrome-mid transition-colors">
                       View Details →
                     </span>
                   </div>

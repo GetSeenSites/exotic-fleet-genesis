@@ -54,7 +54,7 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				'luxury-black': 'hsl(var(--luxury-black))',
-				'executive-gold': 'hsl(var(--executive-gold))',
+				'chrome-accent': 'hsl(var(--chrome-accent))',
 				'mocha-mousse': 'hsl(var(--mocha-mousse))',
 				// Chrome Silver Color Palette
 				'chrome-highlight': 'hsl(var(--chrome-highlight))',
@@ -89,13 +89,18 @@ export default {
 				'chrome-shimmer': {
 					'0%': { backgroundPosition: '-200% 0' },
 					'100%': { backgroundPosition: '200% 0' }
+				},
+				'chrome-pulse': {
+					'0%, 100%': { boxShadow: '0 0 20px hsla(var(--chrome-specular), 0.3)' },
+					'50%': { boxShadow: '0 0 40px hsla(var(--chrome-specular), 0.6)' }
 				}
 			},
 			animation: {
 				'fade-in': 'fade-in 0.6s ease-out',
 				'slide-in-right': 'slide-in-right 0.5s ease-out',
 				'hover-lift': 'hover-lift 0.3s ease-out',
-				'chrome-shimmer': 'chrome-shimmer 3s ease-in-out infinite'
+				'chrome-shimmer': 'chrome-shimmer 3s ease-in-out infinite',
+				'chrome-pulse': 'chrome-pulse 2s ease-in-out infinite'
 			}
 		}
 	},

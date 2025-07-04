@@ -14,7 +14,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 10%;
 
-    --primary: 45 100% 51%;
+    --primary: 210 15% 89%;
     --primary-foreground: 0 0% 0%;
 
     --secondary: 220 13% 91%;
@@ -31,19 +31,19 @@
 
     --border: 220 13% 91%;
     --input: 220 13% 91%;
-    --ring: 45 100% 51%;
+    --ring: 210 15% 89%;
 
     --radius: 0.75rem;
 
     /* Custom Executive Exotics Colors */
     --luxury-black: 0 0% 10%;
     --pure-white: 0 0% 100%;
-    --executive-gold: 45 100% 51%;
+    --chrome-accent: 210 15% 89%;
     --platinum-silver: 220 13% 91%;
     --mocha-mousse: 25 20% 55%;
 
-    /* Chrome Silver Color Palette */
-    --chrome-highlight: 210 20% 98%;     /* Almost pure white with bluish undertone */
+    /* Chrome Silver Color Palette - Enhanced */
+    --chrome-highlight: 210 20% 98%;     /* Almost pure white with bluish undertone #FFFFFF */
     --chrome-light: 210 15% 89%;         /* Bright silver midtones #DDE0E4 */
     --chrome-base: 210 12% 79%;          /* True chrome silver #BFC4CA */
     --chrome-mid: 210 8% 52%;            /* Dark chrome #7A7E85 */
@@ -61,7 +61,7 @@
     --popover: 0 0% 10%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 45 100% 51%;
+    --primary: 210 15% 89%;
     --primary-foreground: 0 0% 0%;
 
     --secondary: 217 33% 17%;
@@ -78,7 +78,7 @@
 
     --border: 217 33% 17%;
     --input: 217 33% 17%;
-    --ring: 45 100% 51%;
+    --ring: 210 15% 89%;
   }
 }
 
@@ -112,12 +112,12 @@
     background-color: hsl(var(--luxury-black));
   }
 
-  .bg-executive-gold {
-    background-color: hsl(var(--executive-gold));
+  .bg-chrome-accent {
+    background-color: hsl(var(--chrome-accent));
   }
 
-  .text-executive-gold {
-    color: hsl(var(--executive-gold));
+  .text-chrome-accent {
+    color: hsl(var(--chrome-accent));
   }
 
   .text-luxury-black {
@@ -177,11 +177,11 @@
     background: linear-gradient(135deg, hsl(var(--luxury-black)) 0%, hsl(var(--mocha-mousse)) 100%);
   }
 
-  .gradient-gold {
-    background: linear-gradient(135deg, hsl(var(--executive-gold)) 0%, #B8860B 100%);
+  .gradient-chrome {
+    background: linear-gradient(135deg, hsl(var(--chrome-light)) 0%, hsl(var(--chrome-base)) 100%);
   }
 
-  /* Chrome Silver Gradients */
+  /* Chrome Silver Gradients - Enhanced */
   .chrome-gradient-primary {
     background: linear-gradient(145deg, 
       hsl(var(--chrome-highlight)) 0%, 
@@ -206,6 +206,15 @@
       hsl(var(--chrome-mid)) 100%);
     border: 1px solid hsl(var(--chrome-specular));
   }
+
+  .chrome-premium-gradient {
+    background: linear-gradient(145deg, 
+      hsl(var(--chrome-specular)) 0%, 
+      hsl(var(--chrome-highlight)) 20%, 
+      hsl(var(--chrome-light)) 40%, 
+      hsl(var(--chrome-base)) 70%, 
+      hsl(var(--chrome-mid)) 100%);
+  }
 }
 
 @layer components {
@@ -214,7 +223,7 @@
   }
 
   .luxury-shadow {
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(212, 175, 55, 0.1);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px hsla(var(--chrome-light), 0.1);
   }
 
   .glass-effect {
@@ -223,7 +232,7 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
-  /* Chrome Silver Effects */
+  /* Chrome Silver Effects - Enhanced */
   .chrome-glass-effect {
     backdrop-filter: blur(20px);
     background: linear-gradient(145deg, 
@@ -322,5 +331,44 @@
       hsla(var(--chrome-specular), 0.8) 50%, 
       transparent 100%);
     border-radius: 1px;
+  }
+
+  .chrome-metallic-surface {
+    background: linear-gradient(145deg, 
+      hsl(var(--chrome-specular)) 0%, 
+      hsl(var(--chrome-highlight)) 15%, 
+      hsl(var(--chrome-light)) 35%, 
+      hsl(var(--chrome-base)) 60%, 
+      hsl(var(--chrome-mid)) 85%, 
+      hsl(var(--chrome-dark)) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chrome-metallic-surface::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      hsla(var(--chrome-specular), 1) 50%, 
+      transparent 100%);
+    animation: chrome-shimmer 3s ease-in-out infinite;
+  }
+
+  .chrome-liquid-metal {
+    background: radial-gradient(ellipse at top, 
+      hsl(var(--chrome-specular)) 0%, 
+      hsl(var(--chrome-highlight)) 20%, 
+      hsl(var(--chrome-light)) 40%, 
+      hsl(var(--chrome-base)) 70%, 
+      hsl(var(--chrome-mid)) 100%);
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.1),
+      inset 0 2px 0 hsla(var(--chrome-specular), 0.9),
+      inset 0 -2px 0 hsla(var(--chrome-dark), 0.3);
   }
 }

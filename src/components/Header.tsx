@@ -21,11 +21,12 @@ const Header = () => {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link to="/" className="flex-shrink-0">
-            <div className="w-[140px]">
+            <div className="w-[140px] h-12 flex items-center">
               <img 
                 src="/Ex_Logo.png" 
                 alt="Executive Exotics Logo" 
-                className="h-12 w-auto chrome-glow-effect"
+                className="h-10 w-auto chrome-glow-effect object-contain"
+                style={{ maxHeight: '40px', width: 'auto' }}
               />
             </div>
           </Link>
