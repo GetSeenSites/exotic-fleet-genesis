@@ -27,15 +27,15 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <a
               href="/fleet"
-              className="chrome-premium-gradient text-luxury-black px-8 py-4 rounded-lg text-lg font-semibold hover:chrome-button-hover transition-all duration-300 hover-lift chrome-button-shadow"
+              className="chrome-premium-gradient text-white px-8 py-4 rounded-lg text-lg font-semibold hover:chrome-metallic-surface transition-all duration-300 hover-lift chrome-button-shadow"
             >
               Browse Our Fleet
             </a>
             <a
               href="/contact"
-              className="border-2 border-chrome-light text-chrome-light px-8 py-4 rounded-lg text-lg font-semibold hover:bg-chrome-light hover:text-luxury-black transition-all duration-300"
+              className="border-2 border-chrome-light text-white px-8 py-4 rounded-lg text-lg font-semibold hover:chrome-metallic-surface hover:border-chrome-specular transition-all duration-300"
             >
-              Contact Us
+              Reserve Your Vehicle
             </a>
           </div>
           
