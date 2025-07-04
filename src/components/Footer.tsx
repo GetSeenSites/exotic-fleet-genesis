@@ -1,11 +1,76 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+  const faqs = [
+    {
+      question: 'How do I book a luxury vehicle?',
+      answer: 'Browse our fleet online, select your preferred vehicle, and submit an inquiry form with your details. Our team will contact you within 24 hours to confirm availability and finalize your reservation.'
+    },
+    {
+      question: 'What are the age and license requirements?',
+      answer: 'Drivers must be at least 25 years old with a valid driver\'s license held for minimum 2 years. International visitors need a valid international driving permit along with their home country license.'
+    },
+    {
+      question: 'What insurance coverage is required?',
+      answer: 'All rentals include comprehensive insurance coverage. However, we require a security deposit that varies by vehicle value. We also recommend checking with your personal insurance provider about exotic vehicle coverage.'
+    },
+    {
+      question: 'Do you offer delivery and pickup services?',
+      answer: 'Yes! We offer complimentary delivery and pickup within Miami-Dade County. Extended delivery areas are available for an additional fee. We can deliver to hotels, airports, or any location convenient for you.'
+    },
+    {
+      question: 'How are your vehicles maintained?',
+      answer: 'Every vehicle in our fleet undergoes rigorous maintenance by certified technicians. We follow manufacturer guidelines and perform detailed inspections before and after each rental to ensure optimal performance and safety.'
+    }
+  ];
+
+  const toggleFAQ = (index: number) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
+
   return (
     <footer className="bg-luxury-black text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        {/* FAQ Section */}
+        <div className="mb-16">
+          <h2 className="font-heading text-3xl font-bold text-executive-gold mb-8 text-center">
+            Frequently Asked Questions
+          </h2>
+          <div className="max-w-4xl mx-auto space-y-4">
+            {faqs.map((faq, index) => (
+              <div key={index} className="bg-gray-900 rounded-lg overflow-hidden">
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-800 transition-colors"
+                >
+                  <h3 className="font-semibold text-white pr-4">
+                    {faq.question}
+                  </h3>
+                  <div className={`transform transition-transform duration-200 ${openFAQ === index ? 'rotate-180' : ''}`}>
+                    <svg className="w-5 h-5 text-executive-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </button>
+                
+                {openFAQ === index && (
+                  <div className="px-6 pb-4">
+                    <div className="border-t border-gray-700 pt-4">
+                      <p className="text-gray-300 leading-relaxed text-sm">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">

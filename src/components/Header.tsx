@@ -7,11 +7,11 @@ const Header = () => {
   const location = useLocation();
 
   const navigation = [
+    { name: 'Home', href: '/' },
     { name: 'Fleet', href: '/fleet' },
     { name: 'About', href: '/about' },
     { name: 'Locations', href: '/locations' },
     { name: 'Contact', href: '/contact' },
-    { name: 'FAQ', href: '/faq' },
     { name: 'Blog', href: '/blog' },
   ];
 

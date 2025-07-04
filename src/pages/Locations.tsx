@@ -6,20 +6,12 @@ import Footer from '../components/Footer';
 const Locations = () => {
   const locations = [
     {
-      city: 'Miami',
-      address: '1234 Ocean Drive, Miami Beach, FL 33139',
-      phone: '(305) XXX-XXXX',
-      hours: 'Mon-Sun: 8:00 AM - 10:00 PM',
-      services: ['Vehicle Delivery', 'Airport Pickup', '24/7 Concierge'],
-      image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80'
-    },
-    {
-      city: 'Orlando',
-      address: '5678 International Drive, Orlando, FL 32819',
-      phone: '(407) XXX-XXXX',
+      city: 'St. Petersburg',
+      address: '3456 Central Avenue, St. Petersburg, FL 33705',
+      phone: '(727) XXX-XXXX',
       hours: 'Mon-Sun: 8:00 AM - 9:00 PM',
-      services: ['Theme Park Delivery', 'Hotel Pickup', 'Event Rentals'],
-      image: 'https://images.unsplash.com/photo-1514214246283-d427a95c5d2f?auto=format&fit=crop&w=800&q=80'
+      services: ['Waterfront Delivery', 'Downtown Pickup', 'Special Events'],
+      image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=800&q=80'
     },
     {
       city: 'Tampa',
@@ -32,12 +24,12 @@ const Locations = () => {
   ];
 
   const deliveryAreas = [
-    'Miami-Dade County',
-    'Broward County',
-    'Palm Beach County',
-    'Orange County',
+    'Pinellas County',
     'Hillsborough County',
-    'Pinellas County'
+    'Pasco County',
+    'Manatee County',
+    'Sarasota County',
+    'Polk County'
   ];
 
   return (
@@ -59,7 +51,7 @@ const Locations = () => {
       {/* Locations Grid */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
             {locations.map((location, index) => (
               <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden hover-lift">
                 <div className="relative h-48">
