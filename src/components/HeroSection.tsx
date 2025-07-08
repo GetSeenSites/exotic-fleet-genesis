@@ -64,13 +64,13 @@ const HeroSection = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in">
           <Link
             to="/fleet"
-            className="bg-executive-gold text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-400 transition-all duration-300 hover-lift"
+            className="border-2 border-executive-gold bg-executive-gold text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-400 transition-all duration-300 hover-lift"
           >
             Browse Our Fleet
           </Link>
           <Link
             to="/contact"
-            className="border-2 border-executive-gold text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-executive-gold hover:text-luxury-black transition-all duration-300"
+            className="border-2 border-executive-gold text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-400 transition-all duration-300"
           >
             Reserve Your Vehicle
           </Link>
