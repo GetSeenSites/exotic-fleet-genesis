@@ -23,11 +23,20 @@ const Header = () => {
           <Link to="/" className="flex-shrink-0">
             <div className="w-[140px] h-12 flex items-center">
               <img 
-                src="/Ex_Logo.png" 
+                src="/Ex_Logo.PNG" 
                 alt="Executive Exotics Logo" 
                 className="h-10 w-auto chrome-glow-effect object-contain"
                 style={{ maxHeight: '40px', width: 'auto' }}
+                onError={(e) => {
+                  console.error('Logo failed to load:', e);
+                  // Fallback to text if image fails to load
+                  e.currentTarget.style.display = 'none';
+                  e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                }}
               />
+              <span className="hidden text-chrome-light font-heading text-xl font-bold">
+                Executive Exotics
+              </span>
             </div>
           </Link>
 
