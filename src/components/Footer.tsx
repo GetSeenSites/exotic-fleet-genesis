@@ -81,9 +81,9 @@ const Footer = () => {
               Executive Exotics – Tampa's Premier Luxury Car Rentals. Experience the finest exotic vehicles with unmatched service and sophistication.
             </p>
             <div className="space-y-2 text-gray-300">
-              <div>📍 Miami, Florida</div>
+              <div>📍 Tampa, Florida</div>
               <div>📞 (Your Business Number)</div>
-              <div>✉️ info@executiveexotics.com</div>
+              <div>✉️ Contact@executiveexoticstpa.com</div>
             </div>
           </div>
 
