@@ -51,10 +51,14 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="font-heading text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in">
-          Drive Tampa's Most <br />
-          <span className="text-executive-gold">Exclusive Exotic Cars</span>
-        </h1>
+        {/* Logo Image replacing the text */}
+        <div className="mb-8 animate-fade-in">
+          <img
+            src="/EET_Logo.png"
+            alt="Executive Exotics Tampa - Drive Tampa's Most Exclusive Exotic Cars"
+            className="mx-auto max-w-full h-auto w-72 sm:w-96 md:w-[28rem] lg:w-[32rem] object-contain"
+          />
+        </div>
         
         <p className="text-xl md:text-2xl text-gray-200 mb-8 animate-fade-in">
           Book your dream ride with ease. Experience luxury, performance, and style with Executive Exotics.

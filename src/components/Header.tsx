@@ -41,7 +41,7 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden lg:flex space-x-8">
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -55,11 +55,11 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
+          {/* CTA Button - Desktop and Tablet */}
+          <div className="hidden sm:block">
             <Link
               to="/fleet"
-              className="chrome-button-gradient text-luxury-black px-6 py-3 rounded-lg font-semibold hover:chrome-button-hover transition-all duration-300 chrome-button-shadow"
+              className="chrome-button-gradient text-luxury-black px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-semibold hover:chrome-button-hover transition-all duration-300 chrome-button-shadow text-sm sm:text-base"
             >
               Browse Fleet
             </Link>
@@ -68,7 +68,7 @@ const Header = () => {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden text-chrome-light hover:text-chrome-highlight transition-colors chrome-icon-glow"
+            className="sm:hidden text-chrome-light hover:text-chrome-highlight transition-colors chrome-icon-glow"
           >
             <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               {isMenuOpen ? (
@@ -82,7 +82,7 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden chrome-mobile-menu rounded-lg mt-2 p-4">
+          <div className="sm:hidden chrome-mobile-menu rounded-lg mt-2 p-4">
             <nav className="flex flex-col space-y-4">
               {navigation.map((item) => (
                 <Link
