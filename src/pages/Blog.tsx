@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
@@ -191,31 +190,6 @@ const Blog = () => {
             <button className="bg-luxury-black text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300">
               Load More Articles
             </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Newsletter Signup */}
-      <section className="py-20 bg-luxury-black text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-heading text-4xl font-bold mb-6">
-            Stay Updated with <span className="text-executive-gold">Executive Exotics</span>
-          </h2>
-          <p className="text-xl text-gray-300 mb-8">
-            Get the latest travel guides, car reviews, and exclusive offers delivered to your inbox.
-          </p>
-          
-          <div className="max-w-md mx-auto">
-            <div className="flex gap-4">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 rounded-lg text-luxury-black focus:outline-none focus:ring-2 focus:ring-executive-gold"
-              />
-              <button className="bg-executive-gold text-luxury-black px-6 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition-all duration-300">
-                Subscribe
-              </button>
-            </div>
           </div>
         </div>
       </section>

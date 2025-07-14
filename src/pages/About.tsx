@@ -41,8 +41,8 @@ const About = () => {
             
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1606016793307-f2b3e02dd6b6?auto=format&fit=crop&w=800&q=80"
-                alt="Luxury car showroom"
+                src="/EE_Logo.PNG"
+                alt="Executive Exotics Logo"
                 className="rounded-xl shadow-2xl"
               />
             </div>
