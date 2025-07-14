@@ -126,7 +126,7 @@ const Contact = () => {
                   </a>
                   <a
                     href="tel:(Your Business Number)"
-                    className="block border-2 border-executive-gold text-executive-gold px-6 py-3 rounded-lg font-semibold text-center hover:bg-executive-gold hover:text-luxury-black transition-all duration-300"
+                    className="block bg-executive-gold text-luxury-black px-6 py-3 rounded-lg font-semibold text-center hover:bg-yellow-400 transition-all duration-300"
                   >
                     Call Now
                   </a>
