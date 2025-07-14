@@ -40,8 +40,8 @@ const Header = () => {
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex space-x-8">
+          {/* Desktop Navigation - Only show on large screens */}
+          <nav className="hidden xl:flex space-x-8">
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -55,20 +55,20 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Button - Desktop and Tablet */}
-          <div className="hidden sm:block">
+          {/* CTA Button - Desktop Only */}
+          <div className="hidden xl:block">
             <Link
               to="/fleet"
-              className="chrome-button-gradient text-luxury-black px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-semibold hover:chrome-button-hover transition-all duration-300 chrome-button-shadow text-sm sm:text-base"
+              className="chrome-button-gradient text-luxury-black px-6 py-3 rounded-lg font-semibold hover:chrome-button-hover transition-all duration-300 chrome-button-shadow"
             >
               Browse Fleet
             </Link>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile/Tablet menu button - Show on all screens smaller than xl */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="sm:hidden text-chrome-light hover:text-chrome-highlight transition-colors chrome-icon-glow"
+            className="xl:hidden text-chrome-light hover:text-chrome-highlight transition-colors chrome-icon-glow"
           >
             <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               {isMenuOpen ? (
@@ -80,9 +80,9 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile/Tablet Navigation - Show dropdown on all screens smaller than xl */}
         {isMenuOpen && (
-          <div className="sm:hidden chrome-mobile-menu rounded-lg mt-2 p-4">
+          <div className="xl:hidden chrome-mobile-menu rounded-lg mt-2 p-4">
             <nav className="flex flex-col space-y-4">
               {navigation.map((item) => (
                 <Link
