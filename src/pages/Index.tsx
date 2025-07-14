@@ -20,9 +20,19 @@ const Index = () => {
             <h2 className="font-heading text-4xl md:text-5xl font-bold text-white mb-6">
               Experience <span className="text-executive-gold">Matters</span>
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Our commitment to excellence has earned us the trust of discerning clients throughout Florida.
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12">
+              Founded by passionate car enthusiasts for true automotive lovers.
+              Executive Exotics was built to redefine Tampa's car rental industry. Our team ensures every detail of your rental is handled with care and discretion. From Ferrari thrills to Rolls Royce luxury, we deliver more than a car – we deliver an unforgettable experience.
             </p>
+            
+            <div className="mb-16">
+              <img
+                src="/EE_Logo.PNG"
+                alt="Executive Exotics Logo"
+                className="mx-auto rounded-xl shadow-2xl max-w-md"
+              />
+              <p className="text-gray-300 mt-4">Premium Service</p>
+            </div>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
