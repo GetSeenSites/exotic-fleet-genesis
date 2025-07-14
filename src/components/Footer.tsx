@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -83,7 +82,7 @@ const Footer = () => {
             <div className="space-y-2 text-gray-300">
               <div>📍 Tampa, Florida</div>
               <div>📞 (Your Business Number)</div>
-              <div>✉️ Contact@executiveexoticstpa.com</div>
+              <div>✉️ contact@executiveexoticstpa.com</div>
             </div>
           </div>
 
