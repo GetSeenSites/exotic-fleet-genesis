@@ -17,7 +17,6 @@ const Reservation = () => {
     returnDate: '',
     pickupLocation: 'Tampa International Airport',
     returnLocation: 'Tampa International Airport',
-    driversLicense: '',
     specialRequests: ''
   });
 
@@ -133,7 +132,6 @@ const Reservation = () => {
       returnDate: '',
       pickupLocation: 'Tampa International Airport',
       returnLocation: 'Tampa International Airport',
-      driversLicense: '',
       specialRequests: ''
     });
   };
@@ -397,22 +395,7 @@ const Reservation = () => {
                     </div>
                   </div>
 
-                  {/* Additional Information */}
-                  <div>
-                    <label htmlFor="driversLicense" className="block text-sm font-medium text-gray-700 mb-2">
-                      Driver's License Number
-                    </label>
-                    <input
-                      type="text"
-                      id="driversLicense"
-                      name="driversLicense"
-                      value={formData.driversLicense}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-chrome-mid focus:border-transparent"
-                      placeholder="Enter your driver's license number"
-                    />
-                  </div>
-
+                  {/* Special Requests */}
                   <div>
                     <label htmlFor="specialRequests" className="block text-sm font-medium text-gray-700 mb-2">
                       Special Requests
