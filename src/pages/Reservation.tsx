@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Header from '../components/Header';
@@ -8,16 +7,13 @@ import { toast } from '@/hooks/use-toast';
 const Reservation = () => {
   const location = useLocation();
   const [selectedCar, setSelectedCar] = useState<any>(null);
-  const [formData, setFormData] = useState({
+  const [formInputs, setFormInputs] = useState({
     firstName: '',
     lastName: '',
-    email: '',
-    phone: '',
+    emailAddress: '',
+    phoneNumber: '',
     pickupDate: '',
-    returnDate: '',
-    pickupLocation: 'Tampa International Airport',
-    returnLocation: 'Tampa International Airport',
-    specialRequests: ''
+    returnDate: ''
   });
 
   useEffect(() => {
@@ -38,13 +34,13 @@ const Reservation = () => {
 
     // Set minimum date to today
     const today = new Date().toISOString().split('T')[0];
-    setFormData(prev => ({ ...prev, pickupDate: today }));
+    setFormInputs(prev => ({ ...prev, pickupDate: today }));
   }, [location.search]);
 
   const calculateRentalDuration = () => {
-    if (formData.pickupDate && formData.returnDate) {
-      const pickup = new Date(formData.pickupDate);
-      const returnDate = new Date(formData.returnDate);
+    if (formInputs.pickupDate && formInputs.returnDate) {
+      const pickup = new Date(formInputs.pickupDate);
+      const returnDate = new Date(formInputs.returnDate);
       const diffTime = Math.abs(returnDate.getTime() - pickup.getTime());
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
       return diffDays;
@@ -58,23 +54,23 @@ const Reservation = () => {
     return duration * dailyRate;
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormInputs(prev => ({ ...prev, [name]: value }));
 
     // Auto-update return date when pickup date changes
-    if (name === 'pickupDate' && value && !formData.returnDate) {
+    if (name === 'pickupDate' && value && !formInputs.returnDate) {
       const nextDay = new Date(value);
       nextDay.setDate(nextDay.getDate() + 1);
-      setFormData(prev => ({ ...prev, returnDate: nextDay.toISOString().split('T')[0] }));
+      setFormInputs(prev => ({ ...prev, returnDate: nextDay.toISOString().split('T')[0] }));
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Basic validation
-    if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone) {
+    if (!formInputs.firstName || !formInputs.lastName || !formInputs.emailAddress || !formInputs.phoneNumber) {
       toast({
         title: "Error",
         description: "Please fill in all required fields.",
@@ -83,7 +79,7 @@ const Reservation = () => {
       return;
     }
 
-    if (!formData.pickupDate || !formData.returnDate) {
+    if (!formInputs.pickupDate || !formInputs.returnDate) {
       toast({
         title: "Error",
         description: "Please select pickup and return dates.",
@@ -92,7 +88,7 @@ const Reservation = () => {
       return;
     }
 
-    if (new Date(formData.returnDate) <= new Date(formData.pickupDate)) {
+    if (new Date(formInputs.returnDate) <= new Date(formInputs.pickupDate)) {
       toast({
         title: "Error",
         description: "Return date must be after pickup date.",
@@ -101,39 +97,49 @@ const Reservation = () => {
       return;
     }
 
-    // Prepare data for submission
-    const submissionData = {
-      ...formData,
-      selected_car: selectedCar?.name,
-      daily_rate: selectedCar?.price,
-      car_specifications: `${selectedCar?.engine}, ${selectedCar?.horsepower}, ${selectedCar?.acceleration}`,
-      rental_duration: calculateRentalDuration(),
-      total_estimated_price: calculateTotalPrice(),
-      car_category: selectedCar?.category,
-      car_transmission: selectedCar?.transmission,
-      car_drivetrain: selectedCar?.drivetrain
-    };
-
-    // Here you would submit to GoHighLevel webhook
-    console.log('Reservation submitted:', submissionData);
+    const formData = new FormData();
     
-    toast({
-      title: "Reservation Submitted!",
-      description: "We'll contact you within 24 hours to confirm your booking.",
-    });
+    formData.append('first_name', formInputs.firstName);
+    formData.append('last_name', formInputs.lastName);
+    formData.append('email_address', formInputs.emailAddress);
+    formData.append('phone_number', formInputs.phoneNumber);
+    formData.append('pickup_date', formInputs.pickupDate);
+    formData.append('return_date', formInputs.returnDate);
 
-    // Reset form
-    setFormData({
-      firstName: '',
-      lastName: '',
-      email: '',
-      phone: '',
-      pickupDate: '',
-      returnDate: '',
-      pickupLocation: 'Tampa International Airport',
-      returnLocation: 'Tampa International Airport',
-      specialRequests: ''
-    });
+    try {
+      const response = await fetch('https://api.leadconnectorhq.com/widget/form/wtWszi4okRRZ4q9MIxXm', {
+        method: 'POST',
+        body: formData
+      });
+
+      if (response.ok) {
+        alert('Reservation submitted successfully!');
+        toast({
+          title: "Reservation Submitted!",
+          description: "We'll contact you within 24 hours to confirm your booking.",
+        });
+        
+        // Reset form
+        setFormInputs({
+          firstName: '',
+          lastName: '',
+          emailAddress: '',
+          phoneNumber: '',
+          pickupDate: '',
+          returnDate: ''
+        });
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Error submitting reservation. Please try again.');
+      toast({
+        title: "Error",
+        description: "Error submitting reservation. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
   if (!selectedCar) {
@@ -225,7 +231,7 @@ const Reservation = () => {
                     <span className="text-gray-600">Daily Rate:</span>
                     <span className="text-2xl font-bold text-chrome-mid">${selectedCar.price}</span>
                   </div>
-                  {formData.pickupDate && formData.returnDate && (
+                  {formInputs.pickupDate && formInputs.returnDate && (
                     <>
                       <div className="flex justify-between items-center mb-2">
                         <span className="text-gray-600">Duration:</span>
@@ -262,7 +268,7 @@ const Reservation = () => {
                           id="firstName"
                           name="firstName"
                           required
-                          value={formData.firstName}
+                          value={formInputs.firstName}
                           onChange={handleInputChange}
                           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-chrome-mid focus:border-transparent"
                         />
@@ -276,7 +282,7 @@ const Reservation = () => {
                           id="lastName"
                           name="lastName"
                           required
-                          value={formData.lastName}
+                          value={formInputs.lastName}
                           onChange={handleInputChange}
                           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-chrome-mid focus:border-transparent"
                         />
@@ -286,29 +292,29 @@ const Reservation = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                      <label htmlFor="emailAddress" className="block text-sm font-medium text-gray-700 mb-2">
                         Email Address *
                       </label>
                       <input
                         type="email"
-                        id="email"
-                        name="email"
+                        id="emailAddress"
+                        name="emailAddress"
                         required
-                        value={formData.email}
+                        value={formInputs.emailAddress}
                         onChange={handleInputChange}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-chrome-mid focus:border-transparent"
                       />
                     </div>
                     <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                      <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-700 mb-2">
                         Phone Number *
                       </label>
                       <input
                         type="tel"
-                        id="phone"
-                        name="phone"
+                        id="phoneNumber"
+                        name="phoneNumber"
                         required
-                        value={formData.phone}
+                        value={formInputs.phoneNumber}
                         onChange={handleInputChange}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-chrome-mid focus:border-transparent"
                       />
@@ -329,7 +335,7 @@ const Reservation = () => {
                           name="pickupDate"
                           required
                           min={today}
-                          value={formData.pickupDate}
+                          value={formInputs.pickupDate}
                           onChange={handleInputChange}
                           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-chrome-mid focus:border-transparent"
                         />
@@ -343,72 +349,13 @@ const Reservation = () => {
                           id="returnDate"
                           name="returnDate"
                           required
-                          min={formData.pickupDate || today}
-                          value={formData.returnDate}
+                          min={formInputs.pickupDate || today}
+                          value={formInputs.returnDate}
                           onChange={handleInputChange}
                           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-chrome-mid focus:border-transparent"
                         />
                       </div>
                     </div>
-                  </div>
-
-                  {/* Pickup/Return Locations */}
-                  <div>
-                    <h3 className="text-lg font-semibold text-luxury-black mb-4">Pickup & Return</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <label htmlFor="pickupLocation" className="block text-sm font-medium text-gray-700 mb-2">
-                          Pickup Location
-                        </label>
-                        <select
-                          id="pickupLocation"
-                          name="pickupLocation"
-                          value={formData.pickupLocation}
-                          onChange={handleInputChange}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-chrome-mid focus:border-transparent"
-                        >
-                          <option value="Tampa International Airport">Tampa International Airport</option>
-                          <option value="Downtown Tampa">Downtown Tampa</option>
-                          <option value="St. Petersburg">St. Petersburg</option>
-                          <option value="Clearwater">Clearwater</option>
-                          <option value="Custom Location">Custom Location</option>
-                        </select>
-                      </div>
-                      <div>
-                        <label htmlFor="returnLocation" className="block text-sm font-medium text-gray-700 mb-2">
-                          Return Location
-                        </label>
-                        <select
-                          id="returnLocation"
-                          name="returnLocation"
-                          value={formData.returnLocation}
-                          onChange={handleInputChange}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-chrome-mid focus:border-transparent"
-                        >
-                          <option value="Tampa International Airport">Tampa International Airport</option>
-                          <option value="Downtown Tampa">Downtown Tampa</option>
-                          <option value="St. Petersburg">St. Petersburg</option>
-                          <option value="Clearwater">Clearwater</option>
-                          <option value="Custom Location">Custom Location</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Special Requests */}
-                  <div>
-                    <label htmlFor="specialRequests" className="block text-sm font-medium text-gray-700 mb-2">
-                      Special Requests
-                    </label>
-                    <textarea
-                      id="specialRequests"
-                      name="specialRequests"
-                      rows={4}
-                      value={formData.specialRequests}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-chrome-mid focus:border-transparent"
-                      placeholder="Any special requests or requirements..."
-                    ></textarea>
                   </div>
 
                   <button
