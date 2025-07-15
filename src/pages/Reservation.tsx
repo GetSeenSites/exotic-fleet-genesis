@@ -109,31 +109,27 @@ const Reservation = () => {
     try {
       const response = await fetch('https://api.leadconnectorhq.com/widget/form/wtWszi4okRRZ4q9MIxXm', {
         method: 'POST',
+        mode: 'no-cors',
         body: formData
       });
 
-      if (response.ok) {
-        alert('Reservation submitted successfully!');
-        toast({
-          title: "Reservation Submitted!",
-          description: "We'll contact you within 24 hours to confirm your booking.",
-        });
-        
-        // Reset form
-        setFormInputs({
-          firstName: '',
-          lastName: '',
-          emailAddress: '',
-          phoneNumber: '',
-          pickupDate: '',
-          returnDate: ''
-        });
-      } else {
-        throw new Error('Submission failed');
-      }
+      // With no-cors, we can't check response.ok, so we assume success
+      toast({
+        title: "Reservation Submitted!",
+        description: "We'll contact you within 24 hours to confirm your booking.",
+      });
+      
+      // Reset form
+      setFormInputs({
+        firstName: '',
+        lastName: '',
+        emailAddress: '',
+        phoneNumber: '',
+        pickupDate: '',
+        returnDate: ''
+      });
     } catch (error) {
       console.error('Error:', error);
-      alert('Error submitting reservation. Please try again.');
       toast({
         title: "Error",
         description: "Error submitting reservation. Please try again.",
