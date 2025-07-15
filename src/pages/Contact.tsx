@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+Fimport React, { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { toast } from '@/hooks/use-toast';
@@ -106,7 +106,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-luxury-black mb-1">Hours</h3>
-                    <p className="text-gray-600">Mon-Sun: 8:00 AM - 10:00 PM</p>
+                    <p className="text-gray-600">Mon-Sun: 24/7 </p>
                   </div>
                 </div>
               </div>
