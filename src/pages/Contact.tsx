@@ -1,4 +1,4 @@
-Fimport React, { useState } from 'react';
+import React, { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { toast } from '@/hooks/use-toast';
@@ -25,13 +25,13 @@ const Contact = () => {
       return;
     }
 
-    // Here you would typically send the data to your backend
-    console.log('Contact form submitted:', formData);
+    // Create mailto link with form data
+    const subject = formData.subject || 'Contact Form Submission';
+    const body = `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone || 'Not provided'}\n\nMessage:\n${formData.message}`;
     
-    toast({
-      title: "Message Sent!",
-      description: "We'll get back to you within 24 hours.",
-    });
+    const mailtoLink = `mailto:contact@executiveexoticstpa.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    window.location.href = mailtoLink;
 
     // Reset form
     setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
