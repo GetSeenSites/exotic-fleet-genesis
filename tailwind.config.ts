@@ -56,6 +56,7 @@ export default {
 				'luxury-black': 'hsl(var(--luxury-black))',
 				'chrome-accent': 'hsl(var(--chrome-accent))',
 				'mocha-mousse': 'hsl(var(--mocha-mousse))',
+				'executive-gold': 'hsl(var(--executive-gold))',
 				// Chrome Silver Color Palette
 				'chrome-highlight': 'hsl(var(--chrome-highlight))',
 				'chrome-light': 'hsl(var(--chrome-light))',

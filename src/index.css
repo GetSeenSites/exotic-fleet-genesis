@@ -41,6 +41,7 @@
     --chrome-accent: 210 15% 89%;
     --platinum-silver: 220 13% 91%;
     --mocha-mousse: 25 20% 55%;
+    --executive-gold: 45 47% 58%;
 
     /* Chrome Silver Color Palette - Enhanced */
     --chrome-highlight: 210 20% 98%;     /* Almost pure white with bluish undertone #FFFFFF */
@@ -130,6 +131,14 @@
 
   .text-mocha-mousse {
     color: hsl(var(--mocha-mousse));
+  }
+
+  .bg-executive-gold {
+    background-color: hsl(var(--executive-gold));
+  }
+
+  .text-executive-gold {
+    color: hsl(var(--executive-gold));
   }
 
   /* Chrome Silver Color Classes */
