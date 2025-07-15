@@ -1,0 +1,12 @@
+{
+  "name": "Lamborghini Huracán",
+  "price": 1200,
+  "engine": "5.2L V10",
+  "horsepower": "630 HP",
+  "speed": "202 mph",
+  "acceleration": "3.2 seconds",
+  "transmission": "7-speed dual-clutch",
+  "drivetrain": "All-wheel drive",
+  "image": "/images/lamborghini-huracan.jpg",
+  "category": "Supercar"
+}

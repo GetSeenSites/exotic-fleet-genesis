@@ -1,0 +1,36 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "vehicles"
+    label: "Vehicles"
+    folder: "content/vehicles"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Price per Day", name: "price", widget: "number"}
+      - {label: "Engine", name: "engine", widget: "string"}
+      - {label: "Horsepower", name: "horsepower", widget: "string"}
+      - {label: "Top Speed", name: "speed", widget: "string"}
+      - {label: "0-60 MPH", name: "acceleration", widget: "string"}
+      - {label: "Transmission", name: "transmission", widget: "string"}
+      - {label: "Drivetrain", name: "drivetrain", widget: "string"}
+      - {label: "Image", name: "image", widget: "image"}
+      - {label: "Category", name: "category", widget: "select", options: ["Supercar", "Luxury SUV", "Sports Car", "Luxury Coupe"]}
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "General Settings"
+        name: "general"
+        file: "content/settings/general.json"
+        fields:
+          - {label: "Site Title", name: "title", widget: "string"}
+          - {label: "Phone Number", name: "phone", widget: "string"}
+          - {label: "Email", name: "email", widget: "string"}
+          - {label: "Address", name: "address", widget: "text"}
