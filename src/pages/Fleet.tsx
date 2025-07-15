@@ -1,11 +1,12 @@
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 const Fleet = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const navigate = useNavigate();
 
   const categories = ['All', 'Supercar', 'Luxury SUV', 'Luxury Coupe', 'Sports Car'];
 
@@ -133,7 +134,7 @@ const Fleet = () => {
       category: vehicle.category
     });
     
-    window.location.href = `/reservation?${params.toString()}`;
+    navigate(`/reservation?${params.toString()}`);
   };
 
   return (
