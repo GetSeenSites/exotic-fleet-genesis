@@ -125,9 +125,9 @@ const Reservation = () => {
                 {/* Embedded GHL Form */}
                 <iframe
                   src="https://api.leadconnectorhq.com/widget/form/wtWszi4okRRZ4q9MIxXm"
-                  style={{width:'100%', height:'610px', border:'none', borderRadius:'3px'}}
-                  id="polite-slide-in-right-wtWszi4okRRZ4q9MIxXm" 
-                  data-layout="{'id':'POLITE_SLIDE_IN','minimizedTitle':'','isLeftAligned':false,'isRightAligned':true,'allowMinimize':false}"
+                  style={{width:'100%', height:'100%', border:'none', borderRadius:'3px'}}
+                  id="inline-wtWszi4okRRZ4q9MIxXm" 
+                  data-layout="{'id':'INLINE'}"
                   data-trigger-type="alwaysShow"
                   data-trigger-value=""
                   data-activation-type="alwaysActivated"
@@ -135,11 +135,12 @@ const Reservation = () => {
                   data-deactivation-type="neverDeactivate"
                   data-deactivation-value=""
                   data-form-name="Car Reservation Form"
-                  data-height="610"
-                  data-layout-iframe-id="polite-slide-in-right-wtWszi4okRRZ4q9MIxXm"
+                  data-height="718"
+                  data-layout-iframe-id="inline-wtWszi4okRRZ4q9MIxXm"
                   data-form-id="wtWszi4okRRZ4q9MIxXm"
                   title="Car Reservation Form"
                 />
+                <script src="https://link.msgsndr.com/js/form_embed.js"></script>
               </div>
             </div>
           </div>
