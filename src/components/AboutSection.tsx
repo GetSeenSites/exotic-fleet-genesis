@@ -18,11 +18,11 @@ const AboutSection = () => {
             </p>
             <div className="grid grid-cols-2 gap-6">
               <div>
-                <div className="text-3xl font-bold text-executive-gold mb-2">500+</div>
+                <div className="text-3xl font-bold text-executive-gold mb-2">25+</div>
                 <div className="text-gray-400">Happy Clients</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-executive-gold mb-2">50+</div>
+                <div className="text-3xl font-bold text-executive-gold mb-2">10+</div>
                 <div className="text-gray-400">Luxury Vehicles</div>
               </div>
               <div>
@@ -31,7 +31,7 @@ const AboutSection = () => {
               </div>
               <div>
                 <div className="text-3xl font-bold text-executive-gold mb-2">5★</div>
-                <div className="text-gray-400">Average Rating</div>
+                <div className="text-gray-400">Ratings</div>
               </div>
             </div>
           </div>
