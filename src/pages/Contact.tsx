@@ -119,13 +119,13 @@ const Contact = () => {
                 <div className="space-y-3">
                   <a
                     href="/fleet"
-                    className="block bg-executive-gold text-luxury-black px-6 py-3 rounded-lg font-semibold text-center hover:bg-yellow-400 transition-all duration-300"
+                    className="block bg-executive-gold text-luxury-black px-6 py-3 rounded-lg font-semibold text-center hover:chrome-button-hover transition-all duration-300"
                   >
                     Browse Our Fleet
                   </a>
                   <a
                     href="tel:(Your Business Number)"
-                    className="block bg-executive-gold text-luxury-black px-6 py-3 rounded-lg font-semibold text-center hover:bg-yellow-400 transition-all duration-300"
+                    className="block bg-executive-gold text-luxury-black px-6 py-3 rounded-lg font-semibold text-center hover:chrome-button-hover transition-all duration-300"
                   >
                     Call Now
                   </a>
